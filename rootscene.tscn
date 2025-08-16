@@ -1,10 +1,114 @@
-[gd_scene load_steps=6 format=4 uid="uid://ctmbcws74n36g"]
+[gd_scene load_steps=24 format=4 uid="uid://ctmbcws74n36g"]
 
 [ext_resource type="Script" uid="uid://b8mfo0piai54g" path="res://player_character.gd" id="1_djgh4"]
 [ext_resource type="Texture2D" uid="uid://ocqr4kaowgws" path="res://icon.svg" id="1_q4lxw"]
+[ext_resource type="Texture2D" uid="uid://bvmyeae60rdfu" path="res://character-front.png" id="2_2airw"]
+[ext_resource type="Texture2D" uid="uid://b751nr714abt1" path="res://characterwalksheett.png" id="3_pma7i"]
+[ext_resource type="Texture2D" uid="uid://bpqyvm72st26u" path="res://acharacterjumpsheet.png" id="3_pmh5l"]
+[ext_resource type="Texture2D" uid="uid://dn71oom55p031" path="res://background.png" id="5_tc213"]
+[ext_resource type="Script" uid="uid://dehtj4m4sxkeg" path="res://tutorial.gd" id="6_4ykmw"]
+[ext_resource type="Texture2D" uid="uid://drpxlr04kicyo" path="res://popup.png" id="6_8ddxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djgh4"]
-size = Vector2(32, 32)
+size = Vector2(20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oqwg"]
+atlas = ExtResource("3_pmh5l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ynr"]
+atlas = ExtResource("3_pmh5l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vo36"]
+atlas = ExtResource("3_pmh5l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy5ve"]
+atlas = ExtResource("3_pmh5l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl3uh"]
+atlas = ExtResource("3_pmh5l")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k5m0"]
+atlas = ExtResource("3_pmh5l")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmh5l"]
+atlas = ExtResource("3_pma7i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc213"]
+atlas = ExtResource("3_pma7i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ddxa"]
+atlas = ExtResource("3_pma7i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ykmw"]
+atlas = ExtResource("3_pma7i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_034xy"]
+atlas = ExtResource("3_pma7i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7oqwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2airw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7oqwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ynr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vo36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy5ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl3uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k5m0")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmh5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc213")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ddxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ykmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_034xy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2airw"]
 texture = ExtResource("1_q4lxw")
@@ -49,25 +153,113 @@ sources/0 = SubResource("TileSetAtlasSource_2airw")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -5
+offset_left = -192.0
+offset_top = -300.0
+offset_right = 6208.0
+offset_bottom = 980.0
+texture = ExtResource("5_tc213")
+stretch_mode = 1
+
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(128, 264)
 script = ExtResource("1_djgh4")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
 shape = SubResource("RectangleShape2D_djgh4")
-
-[node name="ColorRect" type="ColorRect" parent="PlayerCharacter"]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="PlayerCharacter"]
 wait_time = 0.1
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
+sprite_frames = SubResource("SpriteFrames_7oqwg")
+animation = &"walk"
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+
+[node name="Tutorial" type="Control" parent="PlayerCharacter/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -264.0
+offset_right = -88.0
+offset_bottom = -224.0
+script = ExtResource("6_4ykmw")
+
+[node name="TextureRect" type="TextureRect" parent="PlayerCharacter/Camera2D/Tutorial"]
+visible = false
+z_index = 999
+layout_mode = 0
+offset_left = 59.0
+offset_top = 128.0
+offset_right = 156.0
+offset_bottom = 181.0
+texture = ExtResource("6_8ddxa")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerCharacter/Camera2D/Tutorial/TextureRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 177.0
+offset_bottom = 67.0
+text = "Welcome to CatSupport!"
+
+[node name="TextureRect2" type="TextureRect" parent="PlayerCharacter/Camera2D/Tutorial"]
+visible = false
+z_index = 999
+layout_mode = 0
+offset_left = 59.0
+offset_top = 128.0
+offset_right = 239.0
+offset_bottom = 198.0
+texture = ExtResource("6_8ddxa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerCharacter/Camera2D/Tutorial/TextureRect2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 177.0
+offset_bottom = 67.0
+text = "You can move with WAD / ↑←→."
+
+[node name="TextureRect3" type="TextureRect" parent="PlayerCharacter/Camera2D/Tutorial"]
+visible = false
+z_index = 999
+layout_mode = 0
+offset_left = 59.0
+offset_top = 128.0
+offset_right = 239.0
+offset_bottom = 198.0
+texture = ExtResource("6_8ddxa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerCharacter/Camera2D/Tutorial/TextureRect3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 177.0
+offset_bottom = 67.0
+text = "Holding Space/W lets you jump further."
+
+[node name="TextureRect4" type="TextureRect" parent="PlayerCharacter/Camera2D/Tutorial"]
+visible = false
+z_index = 999
+layout_mode = 0
+offset_left = 59.0
+offset_top = 128.0
+offset_right = 239.0
+offset_bottom = 205.0
+texture = ExtResource("6_8ddxa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerCharacter/Camera2D/Tutorial/TextureRect4"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 177.0
+offset_bottom = 74.0
+text = "Your goal is to reach and fix radio towers. Have fun!"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(128, 264)
