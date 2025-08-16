@@ -4,3 +4,4 @@
 /addons/
 /.git/
 .editorconfig
+*.tmp
