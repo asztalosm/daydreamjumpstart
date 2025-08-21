@@ -4,8 +4,8 @@ var speed = 120.0
 var jump_velocity = -475.0
 var gravity = 2300
 var jumptween
-signal changegravity
 var jumping = false
+var hasjumped = false # just an extra failsafe so that when the player falls but has not yet jumped won't crash the game, shouldnt happen but whoever tests it would find the crash if i didnt fix it
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -22,13 +22,16 @@ func _physics_process(delta: float) -> void:
 		jumptween.play()
 		$AnimatedSprite2D.play("jump")
 		velocity.y += jump_velocity
+		hasjumped = true
 		
 	if Input.is_action_pressed("run"):
 		speed = 160.0
+		$AnimatedSprite2D.speed_scale = 2.0
 	else:
 		speed = 120.0
+		$AnimatedSprite2D.speed_scale = 1.0
 	
-	if Input.is_action_just_released("jump"):
+	if Input.is_action_just_released("jump") and hasjumped:
 		jumptween.stop()
 		
 	var direction := Input.get_axis("left", "right")
