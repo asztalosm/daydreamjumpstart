@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="jumpstartdaydream"
+config/name="9G Towers"
 run/main_scene="uid://ctmbcws74n36g"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0.051971, 0.051971, 0.051971, 1)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bjb2hyse06yc2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 94.0
+offset_right = 532.0
+offset_bottom = 248.0
+text = "Thank you for playing this very short game made for jumpstart-daydream"
